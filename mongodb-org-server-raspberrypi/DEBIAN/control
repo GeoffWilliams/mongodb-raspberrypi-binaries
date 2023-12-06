@@ -1,0 +1,11 @@
+Package: mongodb-org-server-raspberrypi
+Version: 4.4.26
+Section: custom
+Priority: optional
+Architecture: arm64
+Essential: no
+Maintainer: geoff@declarativesystems.com
+Description: mongodb for raspberry pi - experimental!
+Homepage: https://github.com/GeoffWilliams/mongodb-raspberrypi-binaries
+Provides: mongodb-org-server (= 4.4.26)
+

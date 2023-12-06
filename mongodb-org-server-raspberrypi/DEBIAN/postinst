@@ -1,0 +1,27 @@
+#!/bin/sh
+
+set -e
+
+case "$1" in
+    configure)
+        # Add your user and group creation commands here
+        if ! getent passwd mongodb >/dev/null; then
+            adduser --system --group --no-create-home --disabled-login --disabled-password --quiet --gecos "MongoDB Server" mongodb
+        fi
+        if [ ! -e /data/db ] ; then
+            mkdir -p /data/db
+            mkdir -p /var/log/mongodb
+            chown mongodb:mongodb /data/db
+        fi
+        if [ ! -e /var/log/mongodb ] ; then
+            mkdir -p /var/log/mongodb
+            sudo chown mongodb:mongodb /var/log/mongodb
+        fi
+        ;;
+    *)
+        # other cases
+        ;;
+esac
+
+# End of postinst
+

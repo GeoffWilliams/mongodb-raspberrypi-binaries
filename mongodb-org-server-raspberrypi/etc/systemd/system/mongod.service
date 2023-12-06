@@ -1,0 +1,25 @@
+[Unit]
+Description=An object/document-oriented database
+Documentation=https://www.mongodb.com/docs/manual/release-notes/4.4/
+After=network.target
+
+[Service]
+User=mongodb
+Group=mongodb
+# Other directives omitted
+# (file size)
+LimitFSIZE=infinity
+# (cpu time)
+LimitCPU=infinity
+# (virtual memory size)
+LimitAS=infinity
+# (locked-in-memory size) - 500mb
+LimitMEMLOCK=524288000
+# (open files)
+LimitNOFILE=64000
+# (processes/threads)
+LimitNPROC=64000
+ExecStart=/usr/local/bin/mongod --config /etc/mongodb.conf
+
+[Install]
+WantedBy=multi-user.target

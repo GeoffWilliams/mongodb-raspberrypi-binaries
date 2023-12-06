@@ -1,0 +1,21 @@
+#!/bin/sh
+
+set -e
+
+case "$1" in
+    remove)
+        # Add your user and group removal commands here
+        if getent passwd mongodb >/dev/null; then
+            deluser --quiet --remove-home mongodb
+        fi
+        ;;
+    upgrade)
+        # Add upgrade-related actions here
+        ;;
+    *)
+        # other cases
+        ;;
+esac
+
+# End of prerm
+

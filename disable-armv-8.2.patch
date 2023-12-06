@@ -1,0 +1,16 @@
+diff --git a/SConstruct b/SConstruct
+index 3312b7c0cfc..41031435a5c 100644
+--- a/SConstruct
++++ b/SConstruct
+@@ -2290,7 +2290,10 @@ if env.ToolchainIs('GCC', 'clang'):
+     elif env['TARGET_ARCH'] == 'aarch64':
+         # If we are using GCC or clang to target aarch64, set the arch to be armv8.2-a,
+         # This is to prevent a bug with WT see SERVER-71772 for more details
+-        env.Append( CCFLAGS=['-march=armv8.2-a', '-mtune=generic'] )
++        #env.Append( CCFLAGS=['-march=armv8.2-a', '-mtune=generic'] )
++        import time
++        print("************* disable armv8.2-a! **********************")
++        time.sleep(10)
+
+ # Needed for auth tests since key files are stored in git with mode 644.
+ if not env.TargetOSIs('windows'):
